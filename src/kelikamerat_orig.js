@@ -3,8 +3,9 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const haetiedot = require('./haetiedot');
+const haehistoriatiedot = require('./haehistoriatiedot');
 
-const tiedosto = './src/camera-stations.json';
+const tiedosto = './src/camera-stations-reduced.json';
 
 const json = fs.readFileSync(tiedosto);
 const arr = JSON.parse(json.toString());

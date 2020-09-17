@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fi-FI"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../src/swiped-events.js"></script>
+	<link rel="stylesheet" type="text/css" href="Tie-74-Ilomantsi_tiedostot/tyylit2.html">
+	<style>
+		body {
+			font-family: Verdana, Geneva, sans-serif;
+			visibility: hidden;
+		}
+		img {
+			height: auto; 
+			width: auto; 
+			max-width: 100%; 
+		}
+		.boxed {
+  			border: 0px solid green;
+			width: auto;
+			max-width: 100%;
+		}
+		hr {
+			margin-left: 0px;
+		}
+		.box {
+			width: 42vw;
+			max-width: 100%;
+			height: 3vh;
+			border: 0px solid #999;
+			font-size: 3vw;
+			color: black;
+			background-color: #eee;
+			border-radius: 5px;
+			box-shadow: 0px 0px #ccc;
+      	}
+		#menu {
+			height: 3vh;
+			width: 100%;
+		}
+		#dropdown {
+			float: left;
+			width: 42vw;
+			max-width: 42%;
+			height: 100%;
+		}
+		#slider {
+			overflow: hidden;
+			width: auto;
+			height: 100%;
+		}
+		form {
+			padding-right: 3vw;
+		}
+		input[type="range"] {
+			width: 98%;
+			margin-top: 0.5vh;
+		}
+	</style>
+	<script>
+		window.addEventListener('load',() => {
+			//console.log(document.getElementsByTagName('body'));
+			//console.log(document.getElementsByTagName('img'));
+			let maxWidth=0;
+			const boxes=document.querySelectorAll('.boxed');
+			if(boxes.length==0) return;
+			boxes.forEach(element => {
+				elementWidth=element.getElementsByTagName('img')[0].clientWidth;
+				if(elementWidth > maxWidth) maxWidth=elementWidth;
+			});
+			console.log("maxWidth:",maxWidth);
+			const boxWidth="width:"+document.getElementsByTagName('img')[0].clientWidth+"px";
+			const boxMaxWidth="max-width:"+document.getElementsByTagName('img')[0].naturalWidth+"px";
+			console.log("boxWidth:",boxWidth);
+			console.log("boxMaxWidth:",boxMaxWidth);
+			console.log(document.getElementsByClassName('boxed'));
+			boxes.forEach(element => {
+				element.setAttribute("style",boxWidth);
+				element.setAttribute("style",boxMaxWidth);
+			});
+			document.getElementsByClassName('boxed')[0].setAttribute("style",boxWidth);
+			document.getElementsByClassName('boxed')[0].setAttribute("style",boxMaxWidth);
+			//document.getElementsByTagName('hr')[0].setAttribute("style",boxWidth);
+			document.getElementsByTagName('body')[0].style.visibility="visible";
+    		//alert("Sivu ladattu");
+		});
+		function updateDropDown(element) {
+			const elements=document.getElementsByClassName("box",element.className);
+			console.log(elements[0]);
+			//console.log(elements[0].options.length);
+			elements[0].selectedIndex=element.value;
+		}
+		function updateSlider(element) {
+			const elements=document.getElementsByClassName("slider",element.className);
+			console.log(elements[0]);
+			//console.log(elements[0].options.length);
+			elements[0].value=element.value;
+		}
+
+		/*window.addEventListener('resize', () => {
+			const boxWidth="width:"+document.getElementsByTagName('img')[0].clientWidth+"px";
+			console.log("boxWidth:",boxWidth);
+		});*/
+
+		window.onload = function() {
+			document.addEventListener('swiped-left', function(e) {
+				console.log(e.type);
+				console.log(e.target);
+				console.log(e);
+				//e.target.innerHTML = e.type;
+				alert(e.type,e);
+			});
+
+			document.addEventListener('swiped-right', function(e) {
+				console.log(e.type);
+				console.log(e.target);
+				console.log(e);
+				//e.target.innerHTML = e.type;
+				alert(e.type,e);
+			});
+		};
+	</script>
+	<title>Tie 74 Ilomantsi</title>
+	</head>
+    <body ondblclick="self.close()">
+<h1>Tie 74 Ilomantsi</h1>
+<div class="boxed"><hr><h2>Joensuuhun</h2>
+<div> <img src="Tie-74-Ilomantsi_tiedostot/C0857502.jpg" alt="C0857502" id="C0857502"> </div>
+<div id="menu">
+	<div id="dropdown">
+	<form>
+		<select class="box C0857502" onchange="updateSlider(this)">
+			<option value="0">2.7.2020 9.11.31</option>
+			<option value="1">2.7.2020 10.11.51</option>
+			<option value="2">12.7.2020 19.11.01</option>
+			<option value="3">24.12.2020 22.39.59</option>
+		</select>
+	</form>
+	</div>
+	<div id="slider">
+		<input class="slider C0857502" type="range" min="0" max="3" oninput="updateDropDown(this)">
+	</div>
+	
+
+</div>
+</div>
+<div class="boxed"><hr><h2>Tie 522 Hattuvaaraan</h2>
+<div><img src="Tie-74-Ilomantsi_tiedostot/C0857503.jpg" alt="C0857503"></div>
+<div>2.7.2020 9.10.47</div>
+</div>
+<hr><div><h2>Tie 514 Enoon</h2>
+<div><img src="Tie-74-Ilomantsi_tiedostot/C0857504.jpg" alt="C0857504"></div>
+<div>2.7.2020 9.11.16</div>
+</div>
+<hr><div><h2>Tie 74 Tienpinta</h2>
+<div><img src="Tie-74-Ilomantsi_tiedostot/C0857509.jpg" alt="C0857509"></div>
+<div>2.7.2020 9.11.01</div>
+</div>
+<script>
+	//let img=document.getElementById('C0857502');
+	//console.log(img);
+	//console.log(img.clientWidth);
+	//console.log(img.clientHeight);
+	//let width = img.clientWidth;
+	//let height = img.clientHeight;
+	//alert( 'Width: ' + width + ' Height:' + height );
+</script>
+</body></html>
